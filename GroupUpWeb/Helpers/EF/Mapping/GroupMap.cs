@@ -29,7 +29,8 @@ namespace GroupUpWeb.Helpers.EF.Mapping
 
             this.HasRequired(t => t.Owner)
                 .WithMany()
-                .HasForeignKey(t => t.OwnerId);
+                .HasForeignKey(t => t.OwnerId)
+                .WillCascadeOnDelete(false);
         }
     }
 }

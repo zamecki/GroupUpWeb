@@ -19,11 +19,13 @@ namespace GroupUpWeb.Helpers.EF.Mapping
 
             this.HasRequired(t => t.User)
                 .WithMany()
-                .HasForeignKey(t => t.UserId);
+                .HasForeignKey(t => t.UserId)
+                .WillCascadeOnDelete(false);
 
             this.HasRequired(t => t.Group)
                 .WithMany()
-                .HasForeignKey(t => t.GroupId);
+                .HasForeignKey(t => t.GroupId)
+                .WillCascadeOnDelete(false);
         }
     }
 }

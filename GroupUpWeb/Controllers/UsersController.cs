@@ -21,21 +21,42 @@ namespace GroupUpWeb.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public DtoResultBase Login(string fbid)
+        public DtoResultBase Login(string email, string password)
         {
-
             return Resolve(() =>
             {
-                if (UserBusiness.Exists(fbid))
-                    UserBusiness.Login(fbid);
-                else
+                var result = new DtoResultBase();
+
+                bool exist = false;
+                exist = UserBusiness.Exists(email);
+                if (exist)
                 {
-                    UserBusiness.Add(fbid);
+                    result.Message = UserBusiness.Login(email, password);
+                    result.StatusCode = System.Net.HttpStatusCode.OK;
                 }
-                UserBusiness.Commit();
-                return new DtoResultBase();
+                else {
+                    result.Message = "NotFound";
+                    result.StatusCode = System.Net.HttpStatusCode.NotFound;
+                }
+                return result;
             });
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public DtoResult<bool> Exist(string fbid)
+        {
+            return Resolve<DtoResult<bool>>(() =>
+            {
+                var result = new DtoResult<bool>();
+
+                result.Result = UserBusiness.Exists(fbid);
+
+                return result;
+            });
+        }
+
+
 
         [HttpPost]
         [AllowAnonymous]
@@ -50,19 +71,7 @@ namespace GroupUpWeb.Controllers
             });
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        public DtoResult<bool> Exist(string fbId)
-        {
-            return Resolve<DtoResult<bool>>(() =>
-            {
-                var result = new DtoResult<bool>();
 
-                result.Result = UserBusiness.Exists(fbId);
-
-                return result;
-            });
-        }
         [HttpGet]
         [AllowAnonymous]
         public DtoResultBase Test()

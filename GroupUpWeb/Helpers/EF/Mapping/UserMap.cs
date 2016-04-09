@@ -17,7 +17,11 @@ namespace GroupUpWeb.Helpers.EF.Mapping
 
             this.Property(t => t.UserID).HasColumnName("Id");
 
-            this.Property(t => t.FbID).HasColumnName("fbid").HasMaxLength(150).IsRequired();
+            this.Property(t => t.Email).HasColumnName("email").HasMaxLength(150).IsRequired();
+
+            this.Property(t => t.Password).HasColumnName("password").HasMaxLength(150).IsRequired();
+
+            this.Property(t => t.Token).HasColumnName("token").HasMaxLength(250);
 
             this.Property(t => t.SinginDate).HasColumnName("sing_date").IsRequired();
 

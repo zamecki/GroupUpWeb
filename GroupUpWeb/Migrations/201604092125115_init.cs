@@ -3,7 +3,7 @@ namespace GroupUpWeb.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _01 : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -19,7 +19,7 @@ namespace GroupUpWeb.Migrations
                         last_update_date = c.DateTime(),
                     })
                 .PrimaryKey(t => t.iId)
-                .ForeignKey("dbo.TB_User", t => t.owner_id, cascadeDelete: true)
+                .ForeignKey("dbo.TB_User", t => t.owner_id, cascadeDelete: false)
                 .Index(t => t.owner_id);
             
             CreateTable(
@@ -27,7 +27,9 @@ namespace GroupUpWeb.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        fbid = c.String(nullable: false, maxLength: 150),
+                        token = c.String(maxLength: 250),
+                        email = c.String(nullable: false, maxLength: 150),
+                        password = c.String(nullable: false, maxLength: 150),
                         sing_date = c.DateTime(nullable: false),
                         last_login_date = c.DateTime(nullable: false),
                     })
@@ -42,8 +44,8 @@ namespace GroupUpWeb.Migrations
                         UserId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.TB_Group", t => t.GroupId, cascadeDelete: true)
-                .ForeignKey("dbo.TB_User", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.TB_Group", t => t.GroupId, cascadeDelete: false)
+                .ForeignKey("dbo.TB_User", t => t.UserId, cascadeDelete: false)
                 .Index(t => t.GroupId)
                 .Index(t => t.UserId);
             

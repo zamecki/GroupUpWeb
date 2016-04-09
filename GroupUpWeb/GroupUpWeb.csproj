@@ -21,7 +21,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
+    <UseGlobalApplicationHostFile>true</UseGlobalApplicationHostFile>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -175,12 +175,13 @@
     <Compile Include="Helpers\EF\RepositoryFactories.cs" />
     <Compile Include="Helpers\EF\RepositoryProvider.cs" />
     <Compile Include="Helpers\GroupUpContext.cs" />
+    <Compile Include="Helpers\TokenGenerator.cs" />
     <Compile Include="Helpers\Uow\IUnityOfWork.cs" />
     <Compile Include="Helpers\Uow\UnityOfWorBasek.cs" />
     <Compile Include="Helpers\Uow\UnityOfWork.cs" />
-    <Compile Include="Migrations\201604050529379_01.cs" />
-    <Compile Include="Migrations\201604050529379_01.Designer.cs">
-      <DependentUpon>201604050529379_01.cs</DependentUpon>
+    <Compile Include="Migrations\201604092125115_init.cs" />
+    <Compile Include="Migrations\201604092125115_init.Designer.cs">
+      <DependentUpon>201604092125115_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Group.cs" />
@@ -204,8 +205,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604050529379_01.resx">
-      <DependentUpon>201604050529379_01.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604092125115_init.resx">
+      <DependentUpon>201604092125115_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

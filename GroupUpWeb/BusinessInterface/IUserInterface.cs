@@ -10,11 +10,11 @@ namespace GroupUpWeb.BusinessInterface
     public interface IUserBusiness : ICommitable
     {
 
-        void Login(string fbid);
+        string Login(string email, string password);
 
-        bool Exists(string fbid);
+        bool Exists(string token);
 
-        void Add(string fbid);
+        void Add(string email, string password);
 
         void Delete(User user);
 
@@ -22,8 +22,8 @@ namespace GroupUpWeb.BusinessInterface
 
         void Update(User user);
 
-        void UpdateLogin(string userId);
+        string UpdateLogin(string email, string password);
 
-        User GetUserFromID(string id);
+        User GetUserFromID(int id);
     }
 }

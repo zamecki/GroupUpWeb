@@ -1,4 +1,5 @@
 ﻿using GroupUpWeb.BusinessInterface;
+using GroupUpWeb.Helpers;
 using GroupUpWeb.Helpers.Business;
 using GroupUpWeb.Helpers.Uow;
 using GroupUpWeb.Models;
@@ -14,11 +15,14 @@ namespace GroupUpWeb.Business
         public UserBusiness(IUnityOfWork uow) : base(uow)
         {
         }
-        public void Add(string fbid)
+
+        public void Add(string email, string password)
         {
             Uow.User.Add(new User
             {
-                FbID = fbid,
+                Email = email,
+                Password = password,
+                Token = TokenGenerator.Token(),
                 SinginDate = DateTime.Now,
                 LastLogin = DateTime.Now
             });
@@ -34,43 +38,35 @@ namespace GroupUpWeb.Business
         }
         public void Update(User user)
         {
-            var u = Uow.User.Where(t => t.FbID == user.FbID).FirstOrDefault();
-            u = new User
-            {
-                FbID = user.FbID,
-                SinginDate = user.SinginDate,
-                LastLogin = DateTime.Now
-            };
-        }
-
-        public void UpdateLogin(string fbid)
-        {
-            var u = Uow.User.Where(t => t.FbID == fbid).FirstOrDefault();
+            var u = Uow.User.Where(t => t.Token == user.Token).FirstOrDefault();
             u.LastLogin = DateTime.Now;
         }
 
-        public bool Exists(string fbid)
+        public string UpdateLogin(string email, string password)
+        {
+            var u = Uow.User.Where(t => t.Email == email).FirstOrDefault();
+            u.LastLogin = DateTime.Now;
+            u.Token = TokenGenerator.Token();
+            return u.Token;
+        }
+
+        public bool Exists(string email)
         {
 
-            var user = Uow.User.Where(u => u.FbID == fbid).FirstOrDefault();
+            var user = Uow.User.Where(u => u.Email == email).FirstOrDefault();
 
             if (user != null)
                 return true;
             else return false;
-            //if (Uow.User.GetAll().Count() == 0)
-            //    return false;
-            //if (Uow.User.Where(user => user.FbID.Equals(fbid)).Count() > 0)
-            //    return true;
-            //else return false;
         }
 
-        public void Login(string fbid)
+        public string Login(string email, string password)
         {
-            UpdateLogin(fbid);
+            return UpdateLogin(email, password);
         }
-        public User GetUserFromID(string id)
+        public User GetUserFromID(int id)
         {
-            return Uow.User.Where(u => u.FbID == id).FirstOrDefault();
+            return Uow.User.Where(u => u.UserID == id).FirstOrDefault();
         }
     }
 }
