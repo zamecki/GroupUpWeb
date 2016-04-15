@@ -14,7 +14,7 @@ namespace GroupUpWeb.BusinessInterface
 
         bool Exists(string token);
 
-        void Add(string email, string password);
+        void Add(User user);
 
         void Delete(User user);
 
@@ -25,5 +25,7 @@ namespace GroupUpWeb.BusinessInterface
         string UpdateLogin(string email, string password);
 
         User GetUserFromID(int id);
+
+        List<User> SearchUser(string searchText);
     }
 }

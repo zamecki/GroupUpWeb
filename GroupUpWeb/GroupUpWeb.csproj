@@ -172,6 +172,7 @@
     <Compile Include="Helpers\EF\Mapping\GroupUserMap.cs" />
     <Compile Include="Helpers\EF\Mapping\MappingConfig.cs" />
     <Compile Include="Helpers\EF\Mapping\UserMap.cs" />
+    <Compile Include="Helpers\EF\Mapping\UserUserMap.cs" />
     <Compile Include="Helpers\EF\RepositoryFactories.cs" />
     <Compile Include="Helpers\EF\RepositoryProvider.cs" />
     <Compile Include="Helpers\GroupUpContext.cs" />
@@ -183,12 +184,25 @@
     <Compile Include="Migrations\201604092125115_init.Designer.cs">
       <DependentUpon>201604092125115_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604101741227_new_tb_useruser.cs" />
+    <Compile Include="Migrations\201604101741227_new_tb_useruser.Designer.cs">
+      <DependentUpon>201604101741227_new_tb_useruser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604101923233_correcao_id_group.cs" />
+    <Compile Include="Migrations\201604101923233_correcao_id_group.Designer.cs">
+      <DependentUpon>201604101923233_correcao_id_group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604101927119_correcao_signin_column_user.cs" />
+    <Compile Include="Migrations\201604101927119_correcao_signin_column_user.Designer.cs">
+      <DependentUpon>201604101927119_correcao_signin_column_user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupUser.cs" />
     <Compile Include="Models\Results\DtoResult.cs" />
     <Compile Include="Models\Results\DtoResultBase.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +221,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201604092125115_init.resx">
       <DependentUpon>201604092125115_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604101741227_new_tb_useruser.resx">
+      <DependentUpon>201604101741227_new_tb_useruser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604101923233_correcao_id_group.resx">
+      <DependentUpon>201604101923233_correcao_id_group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604101927119_correcao_signin_column_user.resx">
+      <DependentUpon>201604101927119_correcao_signin_column_user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -23,7 +23,7 @@ namespace GroupUpWeb.Helpers.EF.Mapping
 
             this.Property(t => t.Token).HasColumnName("token").HasMaxLength(250);
 
-            this.Property(t => t.SinginDate).HasColumnName("sing_date").IsRequired();
+            this.Property(t => t.SigninDate).HasColumnName("signin_date").IsRequired();
 
             this.Property(t => t.LastLogin).HasColumnName("last_login_date");            
         }

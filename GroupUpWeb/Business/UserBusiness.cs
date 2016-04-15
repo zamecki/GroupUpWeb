@@ -16,14 +16,16 @@ namespace GroupUpWeb.Business
         {
         }
 
-        public void Add(string email, string password)
+        public void Add(User user)
         {
             Uow.User.Add(new User
             {
-                Email = email,
-                Password = password,
+                Email = user.Email,
+                Password = user.Password,
+                Name = user.Name,
+                LastName = user.LastName,
                 Token = TokenGenerator.Token(),
-                SinginDate = DateTime.Now,
+                SigninDate = DateTime.Now,
                 LastLogin = DateTime.Now
             });
         }
@@ -52,7 +54,6 @@ namespace GroupUpWeb.Business
 
         public bool Exists(string email)
         {
-
             var user = Uow.User.Where(u => u.Email == email).FirstOrDefault();
 
             if (user != null)
@@ -67,6 +68,11 @@ namespace GroupUpWeb.Business
         public User GetUserFromID(int id)
         {
             return Uow.User.Where(u => u.UserID == id).FirstOrDefault();
+        }
+
+        public List<User> SearchUser(string searchText)
+        {
+            return Uow.User.Where(u => u.Email.Contains(searchText)).ToList();
         }
     }
 }

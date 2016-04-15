@@ -15,7 +15,7 @@ namespace GroupUpWeb.Helpers.EF.Mapping
 
             this.ToTable("TB_Group", "dbo");
 
-            this.Property(t => t.GroupID).HasColumnName("iId");
+            this.Property(t => t.GroupID).HasColumnName("Id");
                 
             this.Property(t => t.Description).HasColumnName("description").HasMaxLength(250).IsOptional();
 

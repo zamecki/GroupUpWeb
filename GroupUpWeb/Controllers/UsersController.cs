@@ -38,6 +38,7 @@ namespace GroupUpWeb.Controllers
                     result.Message = "NotFound";
                     result.StatusCode = System.Net.HttpStatusCode.NotFound;
                 }
+                UserBusiness.Commit();
                 return result;
             });
         }
@@ -79,6 +80,32 @@ namespace GroupUpWeb.Controllers
             return Resolve<DtoResultBase>(() =>
             {
                 return new DtoResultBase();
+            });
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public DtoResultBase CreateUser(User user)
+        {
+            return Resolve(() =>
+            {
+                UserBusiness.Add(user);
+                UserBusiness.Commit();
+                return new DtoResultBase();
+            });
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public DtoResult<List<User>> FindUser(string st)
+        {
+            return Resolve<DtoResult<List<User>>>(() =>
+            {
+                var result = new DtoResult<List<User>>();
+
+                result.Result = UserBusiness.SearchUser(st);
+
+                return result;
             });
         }
     }

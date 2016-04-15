@@ -32,6 +32,7 @@ namespace GroupUpWeb.Helpers
         public DbSet<User> User { get; set; }
         public DbSet<Group> Group { get; set; }
         public DbSet<GroupUser> GroupUser { get; set; }
+        public DbSet<UserUser> UserUser { get; set; }
         #endregion
     }
 }

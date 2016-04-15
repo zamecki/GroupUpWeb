@@ -9,10 +9,12 @@ namespace GroupUpWeb.Models
     public class User
     {
         public int UserID { get; set; }
-        public string Token { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public DateTime SinginDate { get; set; }
+        public string Token { get; set; }
+        public DateTime SigninDate { get; set; }
         public DateTime LastLogin { get; set; }
     }
 }
