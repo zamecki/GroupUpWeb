@@ -1,14 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using GroupUpWeb.Helpers.EF;
-using Moq;
-using GroupUpWeb.Models;
-using GroupUpWeb.BusinessInterface;
-using GroupUpWeb.Helpers;
-using GroupUpWeb.Controllers;
 using GroupUpWeb.Helpers.Uow;
+using GroupUpWeb.BusinessInterface;
+using GroupUpWeb.Controllers;
+using GroupUpWeb.Models;
 
-namespace UnitTestProject
+namespace TestProject
 {
     [TestClass]
     public class UnitTest1
@@ -20,7 +18,8 @@ namespace UnitTestProject
         UsersController controller;
 
         [TestInitialize]
-        void Initialize() {
+        void Initialize()
+        {
 
             repoFac = new RepositoryFactories();
             repoProvider = new RepositoryProvider(repoFac);
@@ -30,10 +29,8 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        void Create_User() {
-
-
-            controller.CreateUser(Builder.user(uow,5));
+        void Create_User()
+        {
         }
     }
 }

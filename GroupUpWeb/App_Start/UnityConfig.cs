@@ -5,6 +5,7 @@ using GroupUpWeb.Business;
 using GroupUpWeb.BusinessInterface;
 using GroupUpWeb.Helpers.Uow;
 using GroupUpWeb.Helpers.EF;
+using GroupUpWeb.Models;
 
 namespace GroupUpWeb.App_Start
 {
@@ -50,7 +51,7 @@ namespace GroupUpWeb.App_Start
             // container.RegisterType<IProductRepository, ProductRepository>();
 
 
-            container.RegisterType<IUserBusiness, UserBusiness>();
+            container.RegisterType<IUser, User>();
         }
     }
 }
