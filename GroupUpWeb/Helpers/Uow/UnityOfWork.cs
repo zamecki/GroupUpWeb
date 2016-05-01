@@ -36,7 +36,7 @@ namespace GroupUpWeb.Helpers.Uow
         {
             get { return GetStandardRepo<GroupUser>(); }
         }
-        public IRepository<UserFriends> UserUser
+        public IRepository<UserFriends> UserFriends
         {
             get { return GetStandardRepo<UserFriends>(); }
         }

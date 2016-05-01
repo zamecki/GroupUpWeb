@@ -1,7 +1,5 @@
 ﻿using System;
 using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
-using GroupUpWeb.Business;
 using GroupUpWeb.BusinessInterface;
 using GroupUpWeb.Helpers.Uow;
 using GroupUpWeb.Helpers.EF;
@@ -52,6 +50,8 @@ namespace GroupUpWeb.App_Start
 
 
             container.RegisterType<IUser, User>();
+            container.RegisterType<IUserFriends, UserFriends>();
+            container.RegisterType<IGroup, Group>();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using GroupUpWeb.Models;
+﻿using GroupUpWeb.Helpers.Business;
+using GroupUpWeb.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace GroupUpWeb.BusinessInterface
 {
-    interface IUserUser
+    public interface IGroupUsers: ICommitable
     {
-        void AddFriend(User userOne, User userTwo);
-
-        void Delete();
+        void AddUser(Group group, User user);
     }
 }

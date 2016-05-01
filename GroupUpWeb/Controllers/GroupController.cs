@@ -12,20 +12,20 @@ namespace GroupUpWeb.Controllers
 {
     public class GroupController : ApiControllerBase
     {
-        private IGroupBusiness GroupBusiness;
+        private IGroup GroupBusiness;
 
-        public GroupController(IGroupBusiness groupBusiness)
+        public GroupController(IGroup groupBusiness)
         {
             GroupBusiness = groupBusiness;
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public DtoResultBase Create(Group group)
+        public DtoResultBase Create(Group group, User owner)
         {
             return Resolve(() =>
             {
-                GroupBusiness.Create(group);
+                GroupBusiness.Create(group, owner);
                 return new DtoResultBase();
             });
         }
@@ -39,32 +39,6 @@ namespace GroupUpWeb.Controllers
                 GroupBusiness.Delete(group);
                 return new DtoResultBase();
             });
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        public DtoResultBase Delete(int groupId)
-        {
-            return Resolve(() =>
-            {
-                GroupBusiness.Delete(groupId);
-                return new DtoResultBase();
-            });
-        }
-
-        [HttpGet]
-        [AllowAnonymous]
-        public DtoResult<bool> Exist(int groupId)
-        {
-            return Resolve<DtoResult<bool>>(() =>
-            {
-                var result = new DtoResult<bool>();
-
-                result.Result = GroupBusiness.Exists(groupId);
-
-                return result;
-            });
-
         }
 
     }

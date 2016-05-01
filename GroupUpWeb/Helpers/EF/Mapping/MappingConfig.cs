@@ -13,7 +13,7 @@ namespace GroupUpWeb.Helpers.EF.Mapping
             modelBuilder.Configurations.Add(new UserMap());
             modelBuilder.Configurations.Add(new GroupMap());
             modelBuilder.Configurations.Add(new GroupUserMap());
-            modelBuilder.Configurations.Add(new UserUserMap());
+            modelBuilder.Configurations.Add(new UserFriendsMap());
         }
     }
 }

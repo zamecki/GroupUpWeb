@@ -165,10 +165,10 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="BusinessInterface\IGroupBusiness.cs" />
+    <Compile Include="BusinessInterface\IGroupUsers.cs" />
+    <Compile Include="BusinessInterface\IGroup.cs" />
     <Compile Include="BusinessInterface\IUser.cs" />
-    <Compile Include="BusinessInterface\IUserUser.cs" />
-    <Compile Include="Business\GroupBusiness.cs" />
+    <Compile Include="BusinessInterface\IUserFriends.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201604101927119_correcao_signin_column_user.Designer.cs">
       <DependentUpon>201604101927119_correcao_signin_column_user.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605012318021_Refatorando user-to-user relation.cs" />
+    <Compile Include="Migrations\201605012318021_Refatorando user-to-user relation.Designer.cs">
+      <DependentUpon>201605012318021_Refatorando user-to-user relation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Models\GroupUser.cs" />
@@ -243,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201604101927119_correcao_signin_column_user.resx">
       <DependentUpon>201604101927119_correcao_signin_column_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605012318021_Refatorando user-to-user relation.resx">
+      <DependentUpon>201605012318021_Refatorando user-to-user relation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

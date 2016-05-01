@@ -8,7 +8,7 @@ using System.Web;
 
 namespace GroupUpWeb.Models
 {
-    public class UserFriends : BusinessBase, IUserUser
+    public class UserFriends : BusinessBase, IUserFriends
     {
         public int UserFriendsID { get; set; }
         public int UserID { get; set; }

@@ -14,10 +14,12 @@ namespace GroupUpWeb.Controllers
     {
 
         private IUser UserBusiness;
+        private IUserFriends UserFriendsBusiness;
 
-        public UsersController(IUser userBusiness)
+        public UsersController(IUser userBusiness, IUserFriends userFriendsBusiness)
         {
             UserBusiness = userBusiness;
+            UserFriendsBusiness = userFriendsBusiness;
         }
 
 
@@ -42,6 +44,18 @@ namespace GroupUpWeb.Controllers
             {
                 UserBusiness.Delete();
                 UserBusiness.Commit();
+                return new DtoResultBase();
+            });
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        public DtoResultBase AddFriend(User me, User friend)
+        {
+
+            return Resolve(() =>
+            {
+                UserFriendsBusiness.AddFriend(me, friend);
+                UserFriendsBusiness.Commit();
                 return new DtoResultBase();
             });
         }
