@@ -22,7 +22,7 @@ namespace GroupUpWeb.Helpers.Uow
         IRepository<User> User { get; }
         IRepository<Group> Group { get; }
         IRepository<GroupUser> GroupUser { get; }
-        IRepository<UserUser> UserUser { get; }
+        IRepository<UserFriends> UserFriends { get; }
 
 
     }

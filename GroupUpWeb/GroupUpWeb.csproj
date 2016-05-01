@@ -167,6 +167,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="BusinessInterface\IGroupBusiness.cs" />
     <Compile Include="BusinessInterface\IUser.cs" />
+    <Compile Include="BusinessInterface\IUserUser.cs" />
     <Compile Include="Business\GroupBusiness.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -184,7 +185,7 @@
     <Compile Include="Helpers\EF\Mapping\GroupUserMap.cs" />
     <Compile Include="Helpers\EF\Mapping\MappingConfig.cs" />
     <Compile Include="Helpers\EF\Mapping\UserMap.cs" />
-    <Compile Include="Helpers\EF\Mapping\UserUserMap.cs" />
+    <Compile Include="Helpers\EF\Mapping\UserFriendsMap.cs" />
     <Compile Include="Helpers\EF\RepositoryFactories.cs" />
     <Compile Include="Helpers\EF\RepositoryProvider.cs" />
     <Compile Include="Helpers\GroupUpContext.cs" />
@@ -214,7 +215,7 @@
     <Compile Include="Models\Results\DtoResult.cs" />
     <Compile Include="Models\Results\DtoResultBase.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserUser.cs" />
+    <Compile Include="Models\UserFriends.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
